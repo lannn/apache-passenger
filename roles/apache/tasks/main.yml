@@ -1,0 +1,12 @@
+- name: ensure apache is at lastest version
+  yum: pkg=httpd state=lastest
+
+- name: write apache config file
+  template: src=httpd.conf.j2 dest=/etc/httpd/conf/httpd.conf
+  notify:
+  - restart apache
+
+- name: ensure apache is running
+  service: name=httpd state=started
+
+

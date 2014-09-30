@@ -1,0 +1,12 @@
+RackEnv ventura
+
+<VirtualHost *:80>
+ # !!! Be sure to point DocumentRoot to 'public'!
+ DocumentRoot {{ httpd.documentroot }}
+ <Directory {{ httpd.documentroot }}>
+ # This relaxes Apache security settings.
+ AllowOverride all
+ # MultiViews must be turned off.
+ Options -MultiViews
+ </Directory>
+</VirtualHost>
